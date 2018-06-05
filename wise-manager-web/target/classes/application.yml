@@ -1,0 +1,7 @@
+server:
+  port: 8001
+
+#  dubbo:
+#    appname: wise_manager_service_consumer
+#    registry: zookeeper://127.0.0.1:2181
+#    protocol: dubbo

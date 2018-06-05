@@ -1,0 +1,32 @@
+server:
+  #端口号
+  port: 9001
+  #项目名，如果不设定，默认是 /
+#  context-path: /manager-service
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    master:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialize: true #指定初始化数据源，是否用data.sql来初始化，默认: true
+      name: master
+      url: jdbc:mysql://127.0.0.1:3306/hsp?useUnicode=true&characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+    slave:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialize: true
+      name: slave
+      url: jdbc:mysql://127.0.0.1:3306/hsp?useUnicode=true&characterEncoding=utf-8&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+
+  dubbo:
+    appname: wise_manager_service_provider
+    registry: zookeeper://127.0.0.1:2181
+    protocol: dubbo
+    port: 20881
+#    scan: com.zhou.wise
