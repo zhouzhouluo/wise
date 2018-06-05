@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 //@EnableDubboConfiguration
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+@EnableAutoConfiguration //(exclude={DataSourceAutoConfiguration.class})
 public class WiseManagerWebApplication {
 
     public static void main(String[] args) {

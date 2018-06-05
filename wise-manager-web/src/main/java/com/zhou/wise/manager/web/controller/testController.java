@@ -7,9 +7,11 @@ import com.zhou.wise.manager.service.IDeviceManageService;
 import com.zhou.wise.manager.service.IPackageVersionService;
 import com.zhou.wise.pojo.DeviceManage;
 import com.zhou.wise.pojo.PackageVersion;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -57,5 +59,23 @@ public class testController {
         System.out.println("packageVersion.gethPackagename()=" + packageVersion.gethPackagename());
         return packageVersion;
     }
+
+    @RequestMapping("/b/{name}")
+//    @ResponseBody
+    public PackageVersion b(@PathVariable String name) {
+        System.out.println("name = "+name);
+        PackageVersion packageVersion = new PackageVersion();
+        packageVersion.sethPackagecode(1);
+        packageVersion.sethPackageversion(name);
+        packageVersion.sethSize(3);
+        packageVersion.sethPackageurl("aaaaaaaaaaaaaaaaaaaaa");
+        packageVersion.sethStatus(1);
+        packageVersion.sethPackagename("luoyizhou");
+        packageVersion.sethCreatetime(new Date());
+        packageVersion.sethServerurl("bbbbbbbbbbbbbbbbbbbbbb");
+        packageVersionService.insert(packageVersion);
+        return packageVersion;
+    }
+
 
 }
